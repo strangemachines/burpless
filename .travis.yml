@@ -1,0 +1,11 @@
+language: python
+install:
+    - python setup.py install
+    - pip install tox
+matrix:
+    include:
+        - python: 3.7
+          env: TOXENV=pep8
+        - python: 3.7
+          env: TOXENV=py7
+script: tox
