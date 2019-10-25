@@ -4,7 +4,7 @@ version = "0.1.1"
 description = "A gherkin parser that uses LALR instead of regex for parsing"
 authors = ["nomorepanic <nomorepanic@strangemachines.io>"]
 license = "GPL-3.0"
-include = ["LICENSE", "README.md"]
+include = ["LICENSE", "README.md", "grammar/grammar.ebnf"]
 repository = "https://github.com/strangemachines/burpless"
 classifiers = [
     'Intended Audience :: Developers'
@@ -31,7 +31,6 @@ pytest-sugar = "^0.9.2"
 
 
 [tool.poetry.scripts]
-include = ["grammar/grammar.ebnf"]
 burpless = 'burpless.Cli:Cli.main'
 
 
