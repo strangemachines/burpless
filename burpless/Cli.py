@@ -15,7 +15,7 @@
 # -*- coding: utf-8 -*-
 import click
 
-from .App import App
+from .Burpless import Burpless
 from .Version import version
 
 
@@ -29,7 +29,7 @@ class Cli:
     @main.command()
     @click.argument('path')
     def parse(path):
-        click.echo(App.parse(path).pretty())
+        click.echo(Burpless.parse(path).pretty())
 
     @staticmethod
     @main.command()

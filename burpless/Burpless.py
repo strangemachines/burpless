@@ -16,15 +16,13 @@
 import io
 import os
 
-from burpless.App import App
-from burpless.Parser import Parser
+from .Parser import Parser
 
 
-def test_app_parse(patch):
-    patch.object(io, 'open')
-    patch.init(Parser)
-    patch.object(Parser, 'parse')
-    result = App.parse('path')
-    io.open.assert_called_with(os.path.join(os.getcwd(), 'path'), 'r')
-    Parser.parse.assert_called_with(io.open().__enter__().read())
-    assert result == Parser.parse()
+class Burpless:
+
+    @staticmethod
+    def parse(path):
+        with io.open(os.path.join(os.getcwd(), path), 'r') as file:
+            source = file.read()
+        return Parser().parse(source)

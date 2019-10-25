@@ -13,7 +13,7 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # -*- coding: utf-8 -*-
-from burpless.App import App
+from burpless.Burpless import Burpless
 from burpless.Cli import Cli
 from burpless.Version import version
 
@@ -30,10 +30,10 @@ def runner():
 
 def test_cli_parse(patch, runner):
     patch.object(click, 'echo')
-    patch.object(App, 'parse')
+    patch.object(Burpless, 'parse')
     runner.invoke(Cli.parse, ['path'])
-    App.parse.assert_called_with('path')
-    click.echo.assert_called_with(App.parse().pretty())
+    Burpless.parse.assert_called_with('path')
+    click.echo.assert_called_with(Burpless.parse().pretty())
 
 
 def test_cli_version(patch, runner):
