@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "burpless"
-version = "0.1.1"
+version = "0.1.2"
 description = "A gherkin parser that uses LALR instead of regex for parsing"
 authors = ["nomorepanic <nomorepanic@strangemachines.io>"]
 license = "GPL-3.0"
